@@ -3,30 +3,51 @@
 #include <string>
 
 int main() {
-    setlocale(LC_ALL, "ru");
     // Ввод цепочек языка L1
     std::vector<std::string> L1;
     int n1;
-    std::cout << "Введите количество цепочек в языке L1: ";
+    std::cout << "Введите количество цепочек в языке L1 (<= 10000): ";
     std::cin >> n1;
 
-    std::cout << "Введите цепочки языка L1:\n";
+    if (n1 <= 0 || n1 > 10000) {
+        std::cerr << "Ошибка: недопустимое количество цепочек для L1\n";
+        return 1;
+    }
+
+    std::cout << "Введите цепочки языка L1 (длина цепочек <= 100):\n";
     for (int i = 0; i < n1; ++i) {
         std::string str;
         std::cin >> str;
+
+        if (str.length() > 100) {
+            std::cerr << "Ошибка: длина цепочки превышает 100 символов\n";
+            return 1;
+        }
+
         L1.push_back(str);
     }
 
     // Ввод цепочек языка L2
     std::vector<std::string> L2;
     int n2;
-    std::cout << "Введите количество цепочек в языке L2: ";
+    std::cout << "Введите количество цепочек в языке L2 (<= 10000): ";
     std::cin >> n2;
 
-    std::cout << "Введите цепочки языка L2:\n";
+    if (n2 <= 0 || n2 > 10000) {
+        std::cerr << "Ошибка: недопустимое количество цепочек для L2\n";
+        return 1;
+    }
+
+    std::cout << "Введите цепочки языка L2 (длина цепочек <= 100):\n";
     for (int i = 0; i < n2; ++i) {
         std::string str;
         std::cin >> str;
+
+        if (str.length() > 100) {
+            std::cerr << "Ошибка: длина цепочки превышает 100 символов\n";
+            return 1;
+        }
+
         L2.push_back(str);
     }
 
